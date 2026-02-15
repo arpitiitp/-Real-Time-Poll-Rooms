@@ -56,5 +56,4 @@ I implemented a two-tier system to keep polls fair without forcing users to crea
 
 ---
 
-## Screenshots
-*(Add your screenshots here)*
+Developed by Arpit Singh
