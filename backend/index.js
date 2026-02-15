@@ -23,6 +23,9 @@ app.use((req, res, next) => {
     req.io = io;
     next();
 });
+app.use('/', (req, res) => {
+    res.send("Backend is running")
+})
 
 app.use('/api/polls', pollRoutes);
 
