@@ -102,7 +102,9 @@ const ViewPoll = () => {
         </div>
     );
 
-    const totalVotes = poll.options.reduce((acc, curr) => acc + curr.votes, 0);
+    if (!poll) return null;
+
+    const totalVotes = poll.options?.reduce((acc, curr) => acc + (curr.votes || 0), 0) || 0;
 
     return (
         <div className="card relative overflow-hidden ring-1 ring-white/5">
@@ -115,7 +117,7 @@ const ViewPoll = () => {
             </h1>
 
             <div className="space-y-3 relative z-10">
-                {poll.options.map((option, index) => {
+                {poll.options?.map((option, index) => {
                     const percentage = totalVotes === 0 ? 0 : Math.round((option.votes / totalVotes) * 100);
                     const isSelected = hasVoted && index === votedOptionIndex;
 

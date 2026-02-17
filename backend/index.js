@@ -23,11 +23,11 @@ app.use((req, res, next) => {
     req.io = io;
     next();
 });
-app.use('/', (req, res) => {
-    res.send("Backend is running")
-})
-
 app.use('/api/polls', pollRoutes);
+
+app.get('/', (req, res) => {
+    res.send("Backend is running");
+});
 
 io.on('connection', (socket) => {
     console.log('Client connected:', socket.id);
